@@ -14,27 +14,28 @@ var re = /(.{6,})[^Аа]/;
 
 var arr = [
     {
-        userName:"Test",
-        lastName:"Test",
-        email:"test.test@gmail.com"
+        userName: "Test",
+        lastName: "Test",
+        email: "test.test@gmail.com"
     },
     {
-        userName:"Dmitro",
-        lastName:"Porohov",
-        email:"dmitro.porohov@yahoo.com"
+        userName: "Dmitro",
+        lastName: "Porohov",
+        email: "dmitro.porohov@yahoo.com"
     },
     {
-        userName:"Andrii",
-        lastName:"",
-        email:"andrii@mail.ru"
+        userName: "Andrii",
+        lastName: "",
+        email: "andrii@mail.ru"
     },
- ];
- 
- 
- var emailRegex = /[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.com$/;
- 
- var trustedEmails = arr.filter(function(obj) {
+];
+
+var emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.com$/;
+
+var trustedEmails = arr.filter(function (obj) {
     return emailRegex.test(obj.email);
- });
- 
- console.log('email(s), які заслуговують довіри', trustedEmails);
+}).map(function (obj) {
+    return obj.email;
+});
+
+console.log('Email(s), які заслуговують довіри:', trustedEmails);
